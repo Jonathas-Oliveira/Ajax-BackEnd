@@ -1,9 +1,9 @@
 # Ajax-BackEnd
 Exercicios concluídos. 
 
-###Tratando requisições Ajax usando:
+### Tratando requisições server-side usando
 
 * Axios
 * Multer
 * jQuery
-
+* XMLHttpRequest
