@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário Via Fetch</h1>
+    <form name="usuarioForm" action="formulario" method="post">
+        <input type="text" name="nome" placeholder="Nome..." />
+        <input type="text" name="sobrenome" placeholder="Sobrenome..." />
+        <button>Salvar</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+        //pegando o form atraves do name
+        document.usuarioForm.onsubmit = async e =>{//onsubmit é o evento de enviar dados para o back
+            e.preventDefault()
+            const form = e.target //pegando todos os attr do formulario
+            const data = new FormData(form) //fazendo um objeto form baseado nos attr 
+
+
+            const options = {
+                method: "post",//definindo o metodo.. poderia ser outro mas usei o da tag
+                body: new URLSearchParams(data)//criando uma url baseada no form para jogar no server
+            }
+            const resultado = document.querySelector('#resultado')
+            fetch(form.action,options)
+                .then(resp => resp.json())
+                .then(json => resultado.innerHTML = JSON.stringify(json))
+        }
+
+
+    </script>
+</body>
