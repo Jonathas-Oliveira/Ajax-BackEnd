@@ -1,7 +1,7 @@
 # Ajax-BackEnd
-Exercicios concluídos. 
+Tasks completed. 
 
-### Tratando requisições server-side usando
+### Making requests server-side using:
 
 * Axios
 * Multer
